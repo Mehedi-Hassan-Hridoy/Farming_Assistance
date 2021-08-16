@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    {
+background-color:darkgray;
+}
+</style>
+    <title>User List</title>
+</head>
+<body>
+    <h1>User List</h1>
+    <form action="../Controller/userlistaction.php" method="Get" name="nForm" onsubmit="getResult(this);return false;">
+        <input type="text" name="username">
+        <input type="submit" name="search" value="Search">
+    </form>
+    <hr>
+    <hr>
+    <table><tr><th>Id</th><th>Username</th><th> Action</th></tr></table>
+    <br>
+        <input name="username" value="you">
+        <br>
+        <input name="username" value="tin">
+        <br>
+        <input name="username" value="miu">
+        <br>
+        <input name="username" value="fah">
+        <br>
+        <td><button type="button" name="delete" id="delete" onclick="confirmDelete()"><a href="../View/deleteuser.php?username=<?php echo $user['username'] ?>">Delete</a></button></td>
+    
+    <span style="color:red"></span>
+    <span style="color:green"></span>
+    <br><br>
+    <a href="Welcome.php">Home</a>
+    <a href="Logout.php">Logout</a>
+    <hr>
+
+    </body>
+</html>
+    <script>
+        function getresults(pForm){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function();{
+            document.getElementById("result").innerHTML = JSON.parse(this.responseText)[2].username;
+        }
+        xhttp.open("Get",pFrom.action + "?username=" + pForm.username.value, true);
+        xhttp.send();
+}

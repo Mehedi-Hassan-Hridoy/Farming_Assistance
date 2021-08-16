@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+body{
+  background-color: darkgray;
+}
+</style>
+<meta charset="utf-8">
+<title>Index</title>
+</head>
+<body> 
+  <h1>Index Page</h1>
+  <center>
+   <h2 style="margin-top: auto;">E-Farming Management System</h2>
+  <p id="try">Tina!</p>
+  <button onclick="fetchData()">Click</button>
+  </center>
+  <script>
+    function fetchData()
+  {var xhttp =new XMLHttpRequest();
+  xhttp.onreadystatechange= function(){
+    if (this.readystate==4 && this.status ==200){
+    document.getElementById("try").innerHTML = this.responseText;
+  }
+};xhttp.open("Get","indexAction.php",true);
+xhttp.send();
+  </script>
+</body>
+</html>
